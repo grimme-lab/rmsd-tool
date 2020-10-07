@@ -1,0 +1,10 @@
+name = "mctc-rmsd"
+version = "0.1.0"
+license = "LGPL-3.0-or-later"
+
+[dependencies]
+[dependencies.mctc-lib]
+git = "git@github.com:grimme-lab/mctc-lib"
+[dependencies.toml-f]
+git = "https://github.com/toml-f/toml-f"
+tag = "v0.2.1"
