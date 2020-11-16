@@ -74,6 +74,17 @@ if install
     rmsd_lib,
     description: 'Structure comparison by root mean square deviation',
   )
+
+  asciidoc = find_program('asciidoctor', required: false)
+  if asciidoc.found()
+    install_man(
+      configure_file(
+        command: [asciidoc, '-b', 'manpage', '@INPUT@', '-o', '@OUTPUT@'],
+        input: files('man/mctc-rmsd.1.adoc'),
+        output: '@BASENAME@',
+      )
+    )
+  endif
 endif
 
 # add the testsuite
