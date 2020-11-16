@@ -1,0 +1,56 @@
+= mctc-rmsd(1)
+
+== Name
+mctc-rmsd - Structure comparison by root mean square deviation
+
+
+== Synopsis
+*mctc-rmsd* [_options ] _file_ _file_...
+
+
+== Description
+
+Requires at least two input files. Supported formats are:
+- xyz, mol, sdf, coord (0D), gen (C), pdb
+
+Configuration data is read from `[rmsd]` table in `mctc.toml`.
+Just place the configuration file `mctc.toml` (or `.mctc.toml`) in your home directory.
+Example:
+
+    [rmsd]
+    unit = "AA"
+    [rmsd.filter]
+    heavy.exclude = [ "H", "h" ]
+
+
+== Options
+
+*--filter* _name_::
+Use _name_ filter from configuration data to apply mask
+
+*--rc*::
+Check configuration data and print it to standard out
+
+*--version*::
+Print program version and exit
+
+*--help*::
+Show this help message
+
+
+== Filter
+
+Filters can be defined in the `[rmsd.filter]` section, they take a list of
+atomic numbers and/or element symbols to define the allow-/deny-list.
+For example, to only check all carbon, nitrogen and oxygen atoms create
+a filter named organic with:
+
+    organic.include = [6, 7, 8]
+
+Similarly, to create a filter for all heavy elements, effectively just
+excluding hydrogen with standard symbols, use:
+
+    heavy.exclude = ["H", "h"]
+
+Note that this approach will still consider deuterium labeled as D,
+which would be excluded as well when using the atomic number instead.
