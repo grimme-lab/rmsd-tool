@@ -58,13 +58,14 @@ program rmsd_main
    call get_value(opts, "help", show_help, size(args) <= 1 .and. .not.show_rc)
    call opts%destroy
 
-   if (show_help) then
-      call help(output_unit)
+   if (show_version) then
+      call version(output_unit)
       stop
    end if
 
-   if (show_version) then
-      call version(output_unit)
+   if (show_help) then
+      call help(output_unit)
+      if (size(args) <= 1) error stop
       stop
    end if
 
@@ -212,6 +213,15 @@ subroutine help(unit)
       "", &
       "Note that this approach will still consider deuterium labeled as D,", &
       "which would be excluded as well when using the atomic number instead.", &
+      "", &
+      "To create a PDB specific filter use the four character PDB identifier", &
+      "of the atoms and enable the PDB functionality.", &
+      "To match only the proteine backbone use", &
+      "", &
+      "    c-alpha.include = ["" CA "", "" N  "", "" C  "", "" O  ""]", &
+      "    c-alpha.pdb = true", &
+      "", &
+      "Atomic numbers and element symbols can be included here as well.", &
       ""
 
 end subroutine help

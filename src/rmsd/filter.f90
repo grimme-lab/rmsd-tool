@@ -42,6 +42,9 @@ module rmsd_filter
       !> Whether the filter contains an allow or a deny list
       logical :: allow
 
+      !> Use PDB identifiers for filtering
+      logical :: pdb
+
    contains
 
       !> Create mask from filter and structure
@@ -112,10 +115,11 @@ subroutine new_rmsd_filter_tbl(self, table, error)
    character(symbol_length), allocatable :: sym(:)
    character(len=:), allocatable :: name, cval
    integer :: ndim, inum, isym, ival, i, stat
-   logical :: allow
+   logical :: allow, pdb
 
    call table%get_key(name)
 
+   call get_value(table, "pdb", pdb, .false.)
    call get_value(table, "include", array, requested=.false.)
    allow = associated(array)
    if (.not.allow) then
@@ -159,13 +163,13 @@ subroutine new_rmsd_filter_tbl(self, table, error)
    if (allocated(error)) return
 
    call new_rmsd_filter(self, name=name, num=num(:inum), sym=sym(:isym), &
-      & allow=allow)
+      & allow=allow, pdb=pdb)
 
 end subroutine new_rmsd_filter_tbl
 
 
 !> Create a new RMSD filter from parts
-subroutine new_rmsd_filter_one(self, name, num, sym, allow)
+subroutine new_rmsd_filter_one(self, name, num, sym, allow, pdb)
 
    !> Instance of species filter
    type(rmsd_filter_type), intent(out) :: self
@@ -175,6 +179,9 @@ subroutine new_rmsd_filter_one(self, name, num, sym, allow)
 
    !> Whether the filter contains an allow or a deny list
    logical, intent(in) :: allow
+
+   !> Filter is specific for PDB identifiers
+   logical, intent(in) :: pdb
 
    !> Atomic number
    integer, intent(in) :: num(:)
@@ -186,6 +193,7 @@ subroutine new_rmsd_filter_one(self, name, num, sym, allow)
    self%sym = sym
    self%num = num
    self%allow = allow
+   self%pdb = pdb
 
 end subroutine new_rmsd_filter_one
 
@@ -224,6 +232,18 @@ subroutine get_mask(self, mol, mask)
       izp = mol%id(iat)
       mask(iat) = tmp(izp)
    end do
+
+   if (self%pdb .and. allocated(mol%pdb)) then
+      if (self%allow) then
+         do iat = 1, mol%nat
+            mask(iat) = mask(iat) .or. any(mol%pdb(iat)%name == self%sym)
+         end do
+      else
+         do iat = 1, mol%nat
+            mask(iat) = mask(iat) .and. all(mol%pdb(iat)%name /= self%sym)
+         end do
+      end if
+   end if
       
 end subroutine get_mask
 
