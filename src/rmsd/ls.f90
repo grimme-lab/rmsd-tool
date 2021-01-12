@@ -1,4 +1,5 @@
 ! This file is part of mctc-rmsd.
+! SPDX-Identifier: LGPL-3.0-or-later
 !
 ! Copyright (C) 2004, 2005 Chaok Seok, Evangelos Coutsias and Ken Dill
 !      UCSF, Univeristy of New Mexico, Seoul National University

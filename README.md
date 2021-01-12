@@ -27,6 +27,51 @@ You can run the projects testsuite with
 meson test -C _build --print-errorlogs
 ```
 
+If the testsuite passes you can install with
+
+```
+meson configure _build --prefix=/path/to/install
+meson install -C _build
+```
+
+This might require administrator access depending on the chosen install prefix.
+Now you are ready to use ``mctc-rmsd``.
+
+
+## Usage
+
+To calculate the RMSD between two structures use the [``mctc-rmsd(1)``](man/mctc-rmsd.1.adoc) program with
+
+```
+mctc-rmsd struc-a.xyz struc-b.xyz
+```
+
+The RMSD is calculated relative to the first provided structure.
+Multiple structures can be provided to perform additional RMSD calculations,
+
+```
+mctc-rmsd coord conf-1.xyz conf-2.xyz conf-3.xyz
+```
+
+To select a subset of atoms use a filter
+
+```
+mctc-rmsd xrd.pdb opt.pdb --filter heavy
+```
+
+The heavy atom RMSD (excluding all H atoms) is built-in by default.
+New filter can be defined in the ``mctc.toml`` configuration file in the current directory or in your home directory with:
+
+```toml
+[rmsd.filter]
+# Definition of the built-in heavy atom filter
+heavy.exclude = ["H", "h"]
+# Include all carbon, nitrogen and oxygen atoms
+organic.include = [6, 7, 8]
+```
+
+For more details look up [the manual page](man/mctc-rmsd.1.adoc).
+
 
 ## License
 

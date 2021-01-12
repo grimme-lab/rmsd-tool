@@ -1,3 +1,4 @@
+! SPDX-Identifier: LGPL-3.0-or-later
 module targ
    use tomlf
    implicit none
