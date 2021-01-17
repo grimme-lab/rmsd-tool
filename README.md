@@ -1,6 +1,7 @@
 # Root mean square deviation for structural comparison
 
-[![Apache-2.0](https://img.shields.io/github/license/grimme-lab/rmsd-tool)](LICENSE)
+[![LGPL-3.0](https://img.shields.io/github/license/grimme-lab/rmsd-tool)](COPYING.LESSER)
+[![Release](https://img.shields.io/github/v/release/grimme-lab/rmsd-tool)](https://github.com/grimme-lab/rmsd-tool/releases/latest)
 [![CI](https://github.com/grimme-lab/rmsd-tool/workflows/CI/badge.svg)](https://github.com/grimme-lab/rmsd-tool/actions)
 [![docs](https://github.com/grimme-lab/rmsd-tool/workflows/docs/badge.svg)](https://grimme-lab.github.io/rmsd-tool)
 
