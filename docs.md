@@ -6,7 +6,8 @@ project_download: https://github.com/grimme-lab/rmsd-tool/releases
 author: Grimme group, Bonn
 github: https://github.com/grimme-lab
 src_dir: ./src
-output_dir: ./docs
+         ./app
+output_dir: ./_docs
 exclude_dir: ./test
 docmark: <
 predocmark: >
