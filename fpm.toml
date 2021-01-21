@@ -5,6 +5,7 @@ license = "LGPL-3.0-or-later"
 [dependencies]
 [dependencies.mctc-lib]
 git = "https://github.com/grimme-lab/mctc-lib"
+tag = "v0.2.0"
 [dependencies.toml-f]
 git = "https://github.com/toml-f/toml-f"
 tag = "v0.2.1"

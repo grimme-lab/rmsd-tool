@@ -22,7 +22,7 @@ module test_rmsd
 
    public :: collect_rmsd
 
-   real(wp), parameter :: thr = 100*epsilon(1.0_wp)
+   real(wp), parameter :: thr = 1e5_wp*epsilon(1.0_wp)
 
 
 contains
