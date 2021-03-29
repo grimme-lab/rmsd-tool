@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="100.0% of total for programs.">214 statements</a>
+    title="100.0% of total for programs.">216 statements</a>
      </li> 
      
      
@@ -1252,8 +1252,8 @@ subroutine <a href='../proc/version.html'>version</a>(unit)
     <h2 id="src">Source Code</h2>
     <div class="highlight"><pre><span></span><span class="k">program </span><span class="n">rmsd_main</span>
    <span class="k">use</span><span class="p">,</span> <span class="k">intrinsic</span> <span class="kd">::</span> <span class="n">iso_fortran_env</span><span class="p">,</span> <span class="k">only</span> <span class="p">:</span> <span class="n">output_unit</span><span class="p">,</span> <span class="n">error_unit</span>
-   <span class="k">use </span><span class="n">mctc_env</span>
-   <span class="k">use </span><span class="n">mctc_io</span>
+   <span class="k">use </span><span class="n">mctc_env</span><span class="p">,</span> <span class="k">only</span> <span class="p">:</span> <span class="n">wp</span><span class="p">,</span> <span class="n">error_type</span><span class="p">,</span> <span class="n">fatal_error</span>
+   <span class="k">use </span><span class="n">mctc_io</span><span class="p">,</span> <span class="k">only</span> <span class="p">:</span> <span class="n">structure_type</span><span class="p">,</span> <span class="n">read_structure</span>
    <span class="k">use </span><span class="n">targ</span>
    <span class="k">use </span><span class="n">rmsd</span>
    <span class="k">use </span><span class="n">rmsd_toml</span>
@@ -1485,14 +1485,14 @@ subroutine <a href='../proc/version.html'>version</a>(unit)
 <span class="nb">   </span><span class="k">call </span><span class="nb">get_environment_variable</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="nb">stat</span><span class="p">)</span>
    <span class="k">if</span> <span class="p">(</span><span class="nb">stat</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">      return</span>
-<span class="k">   </span><span class="n">endif</span>
+<span class="k">   endif</span>
 
-   <span class="k">allocate</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">length</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span><span class="p">,</span> <span class="nb">stat</span><span class="o">=</span><span class="nb">stat</span><span class="p">)</span>
+<span class="k">   allocate</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">length</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span><span class="p">,</span> <span class="nb">stat</span><span class="o">=</span><span class="nb">stat</span><span class="p">)</span>
    <span class="k">if</span> <span class="p">(</span><span class="nb">stat</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">      return</span>
-<span class="k">   </span><span class="n">endif</span>
+<span class="k">   endif</span>
 
-   <span class="k">if</span> <span class="p">(</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
+<span class="k">   if</span> <span class="p">(</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">      call </span><span class="nb">get_environment_variable</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="nb">stat</span><span class="p">)</span>
       <span class="k">if</span> <span class="p">(</span><span class="nb">stat</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">then</span>
 <span class="k">         deallocate</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
@@ -1515,10 +1515,12 @@ subroutine <a href='../proc/version.html'>version</a>(unit)
 
    <span class="k">if</span> <span class="p">(</span><span class="n">is_windows</span><span class="p">())</span> <span class="k">then</span>
 <span class="k">      </span><span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;\&#39;</span>
-<span class="s1">      call get_variable(&#39;</span><span class="n">HOME</span><span class="s1">&#39;, prefix)</span>
+<span class="s1">      call get_variable(&#39;</span><span class="n">HOMEDRIVE</span><span class="s1">&#39;, prefix)</span>
+<span class="s1">      call get_variable(&#39;</span><span class="n">HOMEDIR</span><span class="s1">&#39;, tmp)</span>
+<span class="s1">      prefix = prefix // tmp</span>
 <span class="s1">   else</span>
 <span class="s1">      sep = &#39;</span><span class="o">/</span><span class="s1">&#39;</span>
-<span class="s1">      call get_variable(&#39;</span><span class="n">HOMEDIR</span><span class="s1">&#39;, prefix)</span>
+<span class="s1">      call get_variable(&#39;</span><span class="n">HOME</span><span class="s1">&#39;, prefix)</span>
 <span class="s1">   end if</span>
 <span class="s1">   if (allocated(prefix)) then</span>
 <span class="s1">      tmp = prefix // sep // rc</span>
@@ -1598,7 +1600,7 @@ subroutine <a href='../proc/version.html'>version</a>(unit)
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-01-21 12:41  
+             on 2021-03-29 18:13  
           </p>
         </div>
         <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> mctc-rmsd was developed by Grimme group, Bonn</p></div>

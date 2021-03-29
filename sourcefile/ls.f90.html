@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="41.5% of total for source files.">469 statements</a>
+    title="41.4% of total for source files.">469 statements</a>
      </li> 
      
      
@@ -519,7 +519,7 @@
 <a name="ln-252"></a>   <span class="c">! (III). Form positive definite matrix     T &lt;== lambda*I - T</span>
 <a name="ln-253"></a>   <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span>
 <a name="ln-254"></a>      <span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">lambda</span>
-<a name="ln-255"></a>   <span class="n">enddo</span>
+<a name="ln-255"></a>   <span class="k">enddo</span>
 <a name="ln-256"></a>
 <a name="ln-257"></a>   <span class="c">! (IV). Compute singular values/vectors of SPD matrix B</span>
 <a name="ln-258"></a>   <span class="k">call </span><span class="n">svdcmp</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">SW</span><span class="p">,</span> <span class="n">SV</span><span class="p">,</span> <span class="n">rv1</span><span class="p">)</span>
@@ -562,7 +562,7 @@
 <a name="ln-295"></a>   <span class="k">else</span>
 <a name="ln-296"></a><span class="k">      </span><span class="n">c1</span> <span class="o">=</span> <span class="mf">1.0_dp</span>
 <a name="ln-297"></a>      <span class="n">s1</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
-<a name="ln-298"></a>   <span class="n">endif</span>
+<a name="ln-298"></a>   <span class="k">endif</span>
 <a name="ln-299"></a>
 <a name="ln-300"></a>   <span class="c">! Zero out entries T(3, 1) and T(1, 3)</span>
 <a name="ln-301"></a>   <span class="c">! compute cos and sin of rotation angle in the 2-3 plane</span>
@@ -583,7 +583,7 @@
 <a name="ln-316"></a>   <span class="k">else</span>
 <a name="ln-317"></a><span class="k">      </span><span class="n">c2</span> <span class="o">=</span> <span class="mf">1.0_dp</span>
 <a name="ln-318"></a>      <span class="n">s2</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
-<a name="ln-319"></a>   <span class="n">endif</span>
+<a name="ln-319"></a>   <span class="k">endif</span>
 <a name="ln-320"></a>
 <a name="ln-321"></a>   <span class="c">! Zero out entries T(4, 2) and T(2, 4)</span>
 <a name="ln-322"></a>   <span class="c">! compute cos and sin of rotation angle in the 3-4 plane</span>
@@ -603,7 +603,7 @@
 <a name="ln-336"></a>   <span class="k">else</span>
 <a name="ln-337"></a><span class="k">      </span><span class="n">c3</span> <span class="o">=</span> <span class="mf">1.0_dp</span>
 <a name="ln-338"></a>      <span class="n">s3</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
-<a name="ln-339"></a>   <span class="n">endif</span>
+<a name="ln-339"></a>   <span class="k">endif</span>
 <a name="ln-340"></a>
 <a name="ln-341"></a>   <span class="c">! Compute net rotation matrix (accumulate similarity for evec. computation)</span>
 <a name="ln-342"></a>   <span class="c">! To save transposing later, This is the transpose!</span>
@@ -672,9 +672,9 @@
 <a name="ln-405"></a><span class="k">            do </span><span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span>
 <a name="ln-406"></a>               <span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">scale</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 <a name="ln-407"></a>            <span class="k">end do</span>
-<a name="ln-408"></a><span class="k">         </span><span class="n">endif</span>
-<a name="ln-409"></a>      <span class="n">endif</span>
-<a name="ln-410"></a>      <span class="n">w</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">scale</span><span class="o">*</span><span class="n">g</span>
+<a name="ln-408"></a><span class="k">         endif</span>
+<a name="ln-409"></a><span class="k">      endif</span>
+<a name="ln-410"></a><span class="k">      </span><span class="n">w</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">scale</span><span class="o">*</span><span class="n">g</span>
 <a name="ln-411"></a>      <span class="n">g</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
 <a name="ln-412"></a>      <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
 <a name="ln-413"></a>      <span class="nb">scale</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
@@ -706,9 +706,9 @@
 <a name="ln-439"></a><span class="k">            do </span><span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">n</span>
 <a name="ln-440"></a>               <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="nb">scale</span><span class="o">*</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
 <a name="ln-441"></a>            <span class="k">end do</span>
-<a name="ln-442"></a><span class="k">         </span><span class="n">endif</span>
-<a name="ln-443"></a>      <span class="n">endif</span>
-<a name="ln-444"></a>      <span class="n">anorm</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">anorm</span><span class="p">,</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rv1</span><span class="p">(</span><span class="n">i</span><span class="p">))))</span>
+<a name="ln-442"></a><span class="k">         endif</span>
+<a name="ln-443"></a><span class="k">      endif</span>
+<a name="ln-444"></a><span class="k">      </span><span class="n">anorm</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">anorm</span><span class="p">,</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rv1</span><span class="p">(</span><span class="n">i</span><span class="p">))))</span>
 <a name="ln-445"></a>   <span class="k">end do</span>
 <a name="ln-446"></a>
 <a name="ln-447"></a><span class="k">   do </span><span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
@@ -726,13 +726,13 @@
 <a name="ln-459"></a>                  <span class="n">v</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">v</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span><span class="o">*</span><span class="n">v</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 <a name="ln-460"></a>               <span class="k">end do</span>
 <a name="ln-461"></a><span class="k">            end do</span>
-<a name="ln-462"></a><span class="k">         </span><span class="n">endif</span>
-<a name="ln-463"></a>         <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">n</span>
+<a name="ln-462"></a><span class="k">         endif</span>
+<a name="ln-463"></a><span class="k">         do </span><span class="n">j</span> <span class="o">=</span> <span class="n">l</span><span class="p">,</span> <span class="n">n</span>
 <a name="ln-464"></a>            <span class="n">v</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
 <a name="ln-465"></a>            <span class="n">v</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
 <a name="ln-466"></a>         <span class="k">end do</span>
-<a name="ln-467"></a><span class="k">      </span><span class="n">endif</span>
-<a name="ln-468"></a>      <span class="n">v</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.0_dp</span>
+<a name="ln-467"></a><span class="k">      endif</span>
+<a name="ln-468"></a><span class="k">      </span><span class="n">v</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.0_dp</span>
 <a name="ln-469"></a>      <span class="n">g</span> <span class="o">=</span> <span class="n">rv1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <a name="ln-470"></a>      <span class="n">l</span> <span class="o">=</span> <span class="n">i</span>
 <a name="ln-471"></a>   <span class="k">end do</span>
@@ -762,8 +762,8 @@
 <a name="ln-495"></a><span class="k">         do </span><span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span>
 <a name="ln-496"></a>            <span class="n">a</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
 <a name="ln-497"></a>         <span class="k">end do</span>
-<a name="ln-498"></a><span class="k">      </span><span class="n">endif</span>
-<a name="ln-499"></a>      <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0_dp</span>
+<a name="ln-498"></a><span class="k">      endif</span>
+<a name="ln-499"></a><span class="k">      </span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0_dp</span>
 <a name="ln-500"></a>   <span class="k">end do</span>
 <a name="ln-501"></a>
 <a name="ln-502"></a><span class="k">   do </span><span class="n">k</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
@@ -799,13 +799,13 @@
 <a name="ln-532"></a>               <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span>
 <a name="ln-533"></a>                  <span class="n">v</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">v</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
 <a name="ln-534"></a>               <span class="k">end do</span>
-<a name="ln-535"></a><span class="k">            </span><span class="n">endif</span>
-<a name="ln-536"></a>            <span class="k">goto </span><span class="mi">3</span>
-<a name="ln-537"></a>         <span class="n">endif</span>
-<a name="ln-538"></a>         <span class="k">if</span> <span class="p">(</span><span class="n">its</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">30</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-535"></a><span class="k">            endif</span>
+<a name="ln-536"></a><span class="k">            goto </span><span class="mi">3</span>
+<a name="ln-537"></a>         <span class="k">endif</span>
+<a name="ln-538"></a><span class="k">         if</span> <span class="p">(</span><span class="n">its</span> <span class="p">.</span><span class="n">eq</span><span class="p">.</span> <span class="mi">30</span><span class="p">)</span> <span class="k">then</span>
 <a name="ln-539"></a><span class="k">            error stop</span> <span class="s1">&#39;no convergence in svdcmp&#39;</span>
-<a name="ln-540"></a>         <span class="n">endif</span>
-<a name="ln-541"></a>         <span class="n">x</span> <span class="o">=</span> <span class="n">w</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<a name="ln-540"></a>         <span class="k">endif</span>
+<a name="ln-541"></a><span class="k">         </span><span class="n">x</span> <span class="o">=</span> <span class="n">w</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 <a name="ln-542"></a>         <span class="n">nm</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span>
 <a name="ln-543"></a>         <span class="n">y</span> <span class="o">=</span> <span class="n">w</span><span class="p">(</span><span class="n">nm</span><span class="p">)</span>
 <a name="ln-544"></a>         <span class="n">g</span> <span class="o">=</span> <span class="n">rv1</span><span class="p">(</span><span class="n">nm</span><span class="p">)</span>
@@ -841,8 +841,8 @@
 <a name="ln-574"></a><span class="k">               </span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.0_dp</span><span class="o">/</span><span class="n">z</span>
 <a name="ln-575"></a>               <span class="n">c</span> <span class="o">=</span> <span class="n">f</span><span class="o">*</span><span class="n">z</span>
 <a name="ln-576"></a>               <span class="n">s</span> <span class="o">=</span> <span class="n">h</span><span class="o">*</span><span class="n">z</span>
-<a name="ln-577"></a>            <span class="n">endif</span>
-<a name="ln-578"></a>            <span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">g</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<a name="ln-577"></a>            <span class="k">endif</span>
+<a name="ln-578"></a><span class="k">            </span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">g</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
 <a name="ln-579"></a>            <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">g</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
 <a name="ln-580"></a>            <span class="k">do </span><span class="n">jj</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span>
 <a name="ln-581"></a>               <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="p">(</span><span class="n">jj</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
@@ -875,8 +875,8 @@
 <a name="ln-608"></a><span class="k">         </span><span class="n">pythag</span> <span class="o">=</span> <span class="mf">0.0_dp</span>
 <a name="ln-609"></a>      <span class="k">else</span>
 <a name="ln-610"></a><span class="k">         </span><span class="n">pythag</span> <span class="o">=</span> <span class="n">absb</span><span class="o">*</span><span class="nb">dsqrt</span><span class="p">(</span><span class="mf">1.0_dp</span> <span class="o">+</span> <span class="p">(</span><span class="n">absa</span><span class="o">/</span><span class="n">absb</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<a name="ln-611"></a>      <span class="n">endif</span>
-<a name="ln-612"></a>   <span class="n">endif</span>
+<a name="ln-611"></a>      <span class="k">endif</span>
+<a name="ln-612"></a><span class="k">   endif</span>
 <a name="ln-613"></a>
 <a name="ln-614"></a><span class="k">end function </span><span class="n">pythag</span>
 <a name="ln-615"></a>
@@ -900,7 +900,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-01-21 12:41  
+             on 2021-03-29 18:13  
           </p>
         </div>
         <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> mctc-rmsd was developed by Grimme group, Bonn</p></div>

@@ -16,8 +16,8 @@
 
 program rmsd_main
    use, intrinsic :: iso_fortran_env, only : output_unit, error_unit
-   use mctc_env
-   use mctc_io
+   use mctc_env, only : wp, error_type, fatal_error
+   use mctc_io, only : structure_type, read_structure
    use targ
    use rmsd
    use rmsd_toml
@@ -279,10 +279,12 @@ subroutine get_config_file(config)
 
    if (is_windows()) then
       sep = '\'
-      call get_variable('HOME', prefix)
+      call get_variable('HOMEDRIVE', prefix)
+      call get_variable('HOMEDIR', tmp)
+      prefix = prefix // tmp
    else
       sep = '/'
-      call get_variable('HOMEDIR', prefix)
+      call get_variable('HOME', prefix)
    end if
    if (allocated(prefix)) then
       tmp = prefix // sep // rc
