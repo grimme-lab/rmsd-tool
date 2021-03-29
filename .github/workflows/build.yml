@@ -49,7 +49,7 @@ jobs:
       run: meson compile -C ${{ env.BUILD_DIR }}
 
     - name: Run unit tests
-      run: meson test -C _${{ env.BUILD_DIR }} --print-errorlogs --no-rebuild
+      run: meson test -C ${{ env.BUILD_DIR }} --print-errorlogs --no-rebuild
 
 
   # Test native MinGW Windows build
