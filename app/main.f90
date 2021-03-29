@@ -279,10 +279,12 @@ subroutine get_config_file(config)
 
    if (is_windows()) then
       sep = '\'
-      call get_variable('HOME', prefix)
+      call get_variable('HOMEDRIVE', prefix)
+      call get_variable('HOMEDIR', tmp)
+      prefix = prefix // tmp
    else
       sep = '/'
-      call get_variable('HOMEDIR', prefix)
+      call get_variable('HOME', prefix)
    end if
    if (allocated(prefix)) then
       tmp = prefix // sep // rc
