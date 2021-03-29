@@ -1,11 +1,16 @@
 name = "mctc-rmsd"
-version = "0.1.1"
+version = "0.1.2"
 license = "LGPL-3.0-or-later"
+maintainer = ["@awvwgk"]
+author = ["Sebastian Ehlert"]
+copyright = "2020-2021 Sebastian Ehlert"
+description = "Root mean square deviation for structural comparison"
+keywords = ["computational-chemistry", "structure-comparison", "rmsd"]
 
 [dependencies]
 [dependencies.mctc-lib]
 git = "https://github.com/grimme-lab/mctc-lib"
-tag = "v0.2.0"
+tag = "v0.2.1"
 [dependencies.toml-f]
 git = "https://github.com/toml-f/toml-f"
 tag = "v0.2.1"

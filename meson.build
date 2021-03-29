@@ -17,7 +17,7 @@
 project(
   'mctc-rmsd',
   'fortran',
-  version: '0.1.1',
+  version: '0.1.2',
   license: 'LGPL-3.0-or-later',
   meson_version: '>=0.53',
   default_options: [

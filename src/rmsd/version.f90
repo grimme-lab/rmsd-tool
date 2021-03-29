@@ -24,10 +24,10 @@ module rmsd_version
 
 
    !> String representation of the mctc-rmsd version
-   character(len=*), parameter :: rmsd_version_string = "0.1.1"
+   character(len=*), parameter :: rmsd_version_string = "0.1.2"
 
    !> Numeric representation of the mctc-rmsd version
-   integer, parameter :: rmsd_version_compact(3) = [0, 1, 1]
+   integer, parameter :: rmsd_version_compact(3) = [0, 1, 2]
 
 
 contains
