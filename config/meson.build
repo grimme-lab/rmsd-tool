@@ -47,39 +47,23 @@ elif fc_id == 'pgi'
 endif
 
 # Create the tool chain library as subproject
-mctc_prj = subproject(
+mctc_dep = dependency(
   'mctc-lib',
   version: '>=0.1',
+  fallback: ['mctc-lib', 'mctc_dep'],
   default_options: [
     'default_library=static',
   ],
 )
-mctc_dep = mctc_prj.get_variable('mctc_dep')
 lib_deps += mctc_dep
-inc_dirs += mctc_prj.get_variable('mctc_inc')
-
-if install
-  install_data(
-    mctc_prj.get_variable('mctc_lic'),
-    install_dir: get_option('datadir')/'licenses'/meson.project_name()/'mctc-lib'
-  )
-endif
 
 # Create the TOML-Fortran library as subproject
-tomlf_prj = subproject(
+tomlf_dep = dependency(
   'toml-f',
   version: '>=0.2',
+  fallback: ['toml-f', 'tomlf_dep'],
   default_options: [
     'default_library=static',
   ],
 )
-tomlf_dep = tomlf_prj.get_variable('tomlf_dep')
 lib_deps += tomlf_dep
-inc_dirs += tomlf_prj.get_variable('tomlf_inc')
-
-if install
-  install_data(
-    tomlf_prj.get_variable('tomlf_lic'),
-    install_dir: get_option('datadir')/'licenses'/meson.project_name()/'toml-f'
-  )
-endif
