@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="Root mean square deviation for structural comparison">
-    
     <meta name="author" content="Grimme group, Bonn" >
     <link rel="icon" href="./favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="./css/pygments.css" rel="stylesheet">
     <link href="./css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/local.css" rel="stylesheet">
-    
     <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,53 +43,27 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="./lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="./lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="./lists/procedures.html">Procedures</a></li>
-        
-               
-            <li><a href="./lists/types.html">Derived Types</a></li>
-        
-        
+                   <li><a href="./lists/types.html">Derived Types</a></li>
             <li><a href="./program/rmsd_main.html">Program</a></li>
-      
+       
             </ul>
-            </li>
-
-
-<li class="visible-xs hidden-sm visible-lg"><a href="./lists/files.html">Source Files</a></li>
-
-
-
-<li class="visible-xs hidden-sm visible-lg"><a href="./lists/modules.html">Modules</a></li>
-
-
-
-<li class="visible-xs hidden-sm visible-lg"><a href="./lists/procedures.html">Procedures</a></li>
-
-                             
-<li class="visible-xs hidden-sm visible-lg"><a href="./lists/types.html">Derived Types</a></li>
-
-
-<li class="visible-xs hidden-sm visible-lg"><a href="./program/rmsd_main.html">Program</a></li>
-
-          </ul>
         
+            </li>
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/files.html">Source Files</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/modules.html">Modules</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="./lists/procedures.html">Procedures</a></li>
+                             <li class="visible-xs hidden-sm visible-lg"><a href="./lists/types.html">Derived Types</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="./program/rmsd_main.html">Program</a></li>
+          </ul>
         <form action="./search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -103,45 +72,32 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <p>Root mean square deviation for structural comparison</p>
-        	 
 	<p> Find us on&hellip;</p>
         <p>
-        	 
           <a class="btn btn-lg btn-primary" href="https://github.com/grimme-lab/rmsd-tool" role="button">GitHub</a>
-			 
-			 
-			 
-			 
-	         
-			 
           <a class="btn btn-lg btn-danger" style="float:right" href="https://github.com/grimme-lab/rmsd-tool/releases" role="button">Download the Source</a>
-			 
         </p>
       </div>
 
       <div class="row" id='text'>
-		  
         <div class="col-md-8">
-		  
           <h1>mctc-rmsd</h1>
           <p>Tool to calculate root mean square deviations between molecular structures.</p>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="meson">Meson</h3>
 <p>Create a new meson project and include <code>rmsd</code> either as git-submodule in your subprojects directory or create a wrap file to fetch it from upstream:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[wrap-git]</span>
-<span class="na">directory</span> <span class="o">=</span> <span class="s">mctc-rmsd</span>
-<span class="na">url</span> <span class="o">=</span> <span class="s">https://github.com/grimme-lab/rmsd-tool</span>
-<span class="na">revision</span> <span class="o">=</span> <span class="s">head</span>
+<div class="codehilite"><pre><span></span><code><span class="k">[wrap-git]</span><span class="w"></span>
+<span class="na">directory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mctc-rmsd</span><span class="w"></span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/grimme-lab/rmsd-tool</span><span class="w"></span>
+<span class="na">revision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">head</span><span class="w"></span>
 </code></pre></div>
 
 <p>The <code>rmsd</code> library depends on the <a href="https://github.com/grimme-lab/mctc-lib">MCTC-library</a> and <a href="https://github.com/toml-f/toml-f">TOML-Fortran</a>.
@@ -178,219 +134,83 @@ Note for library type both and shared <code>rmsd</code> will install itself alon
 <h3 id="fortran-package-manager-fpm">Fortran Package Manager (fpm)</h3>
 <p>This project supports <a href="https://github.com/fortran-lang/fpm">fpm</a> as build system as well.
 Just add it to the dependencies in your <code>fpm.toml</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span>
-<span class="k">[dependencies.mctc-rmsd]</span>
-<span class="n">git</span> <span class="o">=</span> <span class="s">&quot;https://github.com/grimme-lab/rmsd-tool&quot;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span><span class="w"></span>
+<span class="k">[dependencies.mctc-rmsd]</span><span class="w"></span>
+<span class="n">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/grimme-lab/rmsd-tool&quot;</span><span class="w"></span>
 </code></pre></div>
         </div>
-		  
         <div class="col-md-4">
 	  <div class="well">
           <h2>Developer Info</h2>
           <h4>Grimme group, Bonn</h4>
           
-          
-			   
             <div class="text-center"><div class="btn-group" role="group">
-              
-              
-              
               <a class="btn btn-lg btn-primary" href="https://github.com/grimme-lab"><i class="fa fa-github fa-lg"></i></a>
-				  
-				  
-              
-              
-              
-              
             </div></div>
-            
        </div>
        </div>
-       
       </div>
-      
-      
-      
-      
-		
       <div class="row">
         <div class="col-xs-6 col-sm-3">
               <h3>Source Files</h3>
-              <ul>
-                
-                  
-                    <li><a href='./sourcefile/config.f90.html'>config.f90</a></li>
-                  
-                
-                  
+              <ul>                    <li><a href='./sourcefile/config.f90.html'>config.f90</a></li>
                     <li><a href='./sourcefile/filter.f90.html'>filter.f90</a></li>
-                  
-                
-                  
                     <li><a href='./sourcefile/ls.f90.html'>ls.f90</a></li>
-                  
-                
-                  
                     <li><a href='./sourcefile/main.f90.html'>main.f90</a></li>
-                  
-                
-                  
                     <li><a href='./sourcefile/rmsd.f90.html'>rmsd.f90</a></li>
-                  
-                
-                  
                     <li><a href='./sourcefile/targ.f90.html'>targ.f90</a></li>
-                  
-                
-                  
                     <li><a href='./sourcefile/toml.f90.html'>toml.f90</a></li>
-                  
-                
-                  
                     <li><a href='./sourcefile/version.f90.html'>version.f90</a></li>
-                  
-                
-              </ul>
+</ul>
           </div>
-          
 		  <div class="col-xs-6 col-sm-3">
               <h3>Modules</h3>
-              <ul>
-                
-                  
-                    <li><a href='./module/rmsd.html'>rmsd</a></li>
-                  
-                
-                  
+              <ul>                    <li><a href='./module/rmsd.html'>rmsd</a></li>
                     <li><a href='./module/rmsd_config.html'>rmsd_config</a></li>
-                  
-                
-                  
                     <li><a href='./module/rmsd_filter.html'>rmsd_filter</a></li>
-                  
-                
-                  
                     <li><a href='./module/rmsd_ls.html'>rmsd_ls</a></li>
-                  
-                
-                  
                     <li><a href='./module/rmsd_toml.html'>rmsd_toml</a></li>
-                  
-                
-                  
                     <li><a href='./module/rmsd_version.html'>rmsd_version</a></li>
-                  
-                
-                  
                     <li><a href='./module/targ.html'>targ</a></li>
-                  
-                
-              </ul>
+</ul>
           </div>
-          
-          
 		  <div class="col-xs-6 col-sm-3">
               <h3>Procedures</h3>
-              <ul>
-                
-                  
-                    <li><a href='./proc/get_arguments.html'>get_arguments</a></li>
-                  
-                
-                  
+              <ul>                    <li><a href='./proc/get_arguments.html'>get_arguments</a></li>
                     <li><a href='./proc/get_config_file.html'>get_config_file</a></li>
-                  
-                
-                  
                     <li><a href='./proc/get_options.html'>get_options</a></li>
-                  
-                
-                  
-                    <li><a href='./interface/get_rmsd.html'>get_rmsd</a></li>
-                  
-                
-                  
                     <li><a href='./interface/get_rmsd~2.html'>get_rmsd</a></li>
-                  
-                
-                  
+                    <li><a href='./interface/get_rmsd.html'>get_rmsd</a></li>
                     <li><a href='./proc/get_rmsd_version.html'>get_rmsd_version</a></li>
-                  
-                
-                  
                     <li><a href='./proc/get_variable.html'>get_variable</a></li>
-                  
-                
-                  
                     <li><a href='./proc/help.html'>help</a></li>
-                  
-                
-                  
                     <li><a href='./proc/is_windows.html'>is_windows</a></li>
-                  
-                
-                  
                     <li><a href='./proc/new_argument_parser.html'>new_argument_parser</a></li>
-                  
-                
-                  
-                    <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-              </ul>
+</ul>
           </div>
-          
-          
 		  <div class="col-xs-6 col-sm-3">
               <h3>Derived Types</h3>
-              <ul>
-                
-                  
-                    <li><a href='./type/arg_type.html'>arg_type</a></li>
-                  
-                
-                  
+              <ul>                    <li><a href='./type/arg_type.html'>arg_type</a></li>
                     <li><a href='./type/rmsd_config_type.html'>rmsd_config_type</a></li>
-                  
-                
-                  
                     <li><a href='./type/rmsd_filter_type.html'>rmsd_filter_type</a></li>
-                  
-                
-                  
                     <li><a href='./type/targ_type.html'>targ_type</a></li>
-                  
-                
-              </ul>
+</ul>
           </div>
-          
       </div>
-
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2021 
-                                          </p></div>
-        <div class="col-xs-6 col-md-4 col-md-push-4">
+        <div class="col-xs-6 col-md-6"><p>mctc-rmsd was developed by Grimme group, Bonn<br>&copy; 2022 
+</p>
+        </div>
+        <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
-            <a href="https://github.com/cmacmackin/ford">FORD</a>
-             on 2021-03-29 18:13  
-          </p>
+            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2022-07-25 16:33            </p>
         </div>
-        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> mctc-rmsd was developed by Grimme group, Bonn</p></div>
       </div>
       <br>
       </div> <!-- /container -->    
@@ -416,14 +236,11 @@ Just add it to the dependencies in your <code>fpm.toml</code> file:</p>
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="./tipuesearch/tipuesearch_content.js"></script>
     <script src="./tipuesearch/tipuesearch_set.js"></script>
     <script src="./tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>
