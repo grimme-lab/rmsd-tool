@@ -47,7 +47,7 @@ elif fc_id == 'pgi'
 endif
 
 # Create the tool chain library as subproject
-mctc_prj = dependency(
+mctc_dep = dependency(
   'mctc-lib',
   version: '>=0.1',
   fallback: ['mctc-lib', 'mctc_dep'],
@@ -55,6 +55,7 @@ mctc_prj = dependency(
     'default_library=static',
   ],
 )
+lib_deps += mctc_dep
 
 # Create the TOML-Fortran library as subproject
 tomlf_dep = dependency(
@@ -65,3 +66,4 @@ tomlf_dep = dependency(
     'default_library=static',
   ],
 )
+lib_deps += tomlf_dep
